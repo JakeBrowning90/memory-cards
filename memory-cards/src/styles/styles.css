@@ -17,8 +17,8 @@
 }
 
 #cardField {
-    height: 60vw;
-    width: 60vw;
+    height: 70vh;
+    width: 70vh;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -27,5 +27,6 @@
 
 #cardField > * {
     border: solid black 1px;
-    background-color: rgb(255, 255, 196);
+    background-color: rgb(255, 255, 128);
+    border-radius: 10px;
 }
