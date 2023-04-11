@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import './styles/reset.css';
 import './styles/styles.css';
 import CardField from "./components/cardField";
@@ -35,31 +35,45 @@ function App() {
     {key: 25, clicked: false},
   ])
 
+  useEffect(() => {}, [])
+
   useEffect(() => {
-    const checkMove = (e) => {
+    const playTurn = (e) => {
       const chosenCard = cardDeck.find(card => card.key == e.target.dataset.key);
-      console.log(chosenCard);
-      if (chosenCard.clicked == false) {
-        //Set clicked to true
+      const result = isMoveGood(chosenCard);
+      if (result == true) {
 
-        const replaceIndex = cardDeck.indexOf(chosenCard)
-        const updatedCard = {key: chosenCard.key, clicked: true}
-        const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
-
-        setCardDeck(updatedDeck);
+        setCardDeck(updateDeck(chosenCard));
+        console.log(cardDeck);
         increaseScore();
         updateBest(); 
       } else {
-        resetGame()
+        resetScore();
+        resetCards();
       }
-      shuffleCards();
+        shuffleCards();
     };
+
+    const isMoveGood = (card) => {
+      if(card.clicked == false) {
+        return true
+      } else {
+        return false
+      }
+    };
+
+    const updateDeck = (chosenCard) => {
+      const replaceIndex = cardDeck.indexOf(chosenCard)
+      const updatedCard = {key: chosenCard.key, clicked: true}
+      const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
+      return updatedDeck
+    }
 
     const increaseScore = () => {
       setScore(score + 1);
     };
 
-    const resetGame = () => {
+    const resetScore = () => {
       setScore(0);
     };
 
@@ -77,23 +91,53 @@ function App() {
       setCardDeck(cardDeck)
     };
 
+    const resetCards = () => {
+      setCardDeck([
+        {key: 1, clicked: false},
+        {key: 2, clicked: false},
+        {key: 3, clicked: false},
+        {key: 4, clicked: false},
+        {key: 5, clicked: false},
+        {key: 6, clicked: false},
+        {key: 7, clicked: false},
+        {key: 8, clicked: false},
+        {key: 9, clicked: false},
+        {key: 10, clicked: false},
+        {key: 11, clicked: false},
+        {key: 12, clicked: false},
+        {key: 13, clicked: false},
+        {key: 14, clicked: false},
+        {key: 15, clicked: false},
+        {key: 16, clicked: false},
+        {key: 17, clicked: false},
+        {key: 18, clicked: false},
+        {key: 19, clicked: false},
+        {key: 20, clicked: false},
+        {key: 21, clicked: false},
+        {key: 22, clicked: false},
+        {key: 23, clicked: false},
+        {key: 24, clicked: false},
+        {key: 25, clicked: false},
+      ])
+    }
+
     const resetButton = document.getElementById("resetButton")
-    resetButton.addEventListener("click", resetGame)
+    resetButton.addEventListener("click", resetScore)
 
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
-      card.addEventListener("click", checkMove);
+      card.addEventListener("click", playTurn);
     });
 
     return () => {
       cards.forEach(card => {
-        card.removeEventListener("click", checkMove);
+        card.removeEventListener("click", playTurn);
       });
       
-      resetButton.removeEventListener("click", resetGame);
+      resetButton.removeEventListener("click", resetScore);
     };
 
-  }, [score, best, cardDeck])
+  }, [score, best])
 
 
 
