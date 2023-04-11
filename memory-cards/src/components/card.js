@@ -4,7 +4,7 @@ const Card = (props) => {
     const { face } = props;
 
     return (
-        <div className="card">
+        <div data-key={face} className="card">
             {face}
         </div>
     );

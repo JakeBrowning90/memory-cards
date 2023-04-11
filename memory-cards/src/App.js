@@ -37,13 +37,26 @@ function App() {
 
   useEffect(() => {
     const checkMove = (e) => {
-      const chosenCard = e.target;
+      const chosenCard = cardDeck.find(card => card.key == e.target.dataset.key);
       console.log(chosenCard);
+      if (chosenCard.clicked == false) {
+        //Set clicked to true
+
+        const replaceIndex = cardDeck.indexOf(chosenCard)
+        const updatedCard = {key: chosenCard.key, clicked: true}
+        const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
+
+        setCardDeck(updatedDeck);
+        increaseScore();
+        updateBest(); 
+      } else {
+        resetGame()
+      }
+      shuffleCards();
     };
 
     const increaseScore = () => {
       setScore(score + 1);
-      updateBest();
     };
 
     const resetGame = () => {
@@ -70,16 +83,13 @@ function App() {
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
       card.addEventListener("click", checkMove);
-      card.addEventListener("click", increaseScore);
-      card.addEventListener("click", shuffleCards);
     });
 
     return () => {
       cards.forEach(card => {
-        card.removeEventListener("click", increaseScore);
-        // card.removeEventListener("click", shuffleCards);
+        card.removeEventListener("click", checkMove);
       });
-  
+      
       resetButton.removeEventListener("click", resetGame);
     };
 
@@ -92,7 +102,7 @@ function App() {
       <div id="pageHeader">
         Points: {score}
         Best: {best}
-        <button id="resetButton">Reset</button>
+        <button id="resetButton">Retry</button>
       </div>
       <div id="pageBody">
         <CardField cardDeck={cardDeck}/>
