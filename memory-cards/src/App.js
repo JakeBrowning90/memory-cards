@@ -66,6 +66,7 @@ function App() {
       const replaceIndex = cardDeck.indexOf(chosenCard)
       const updatedCard = {key: chosenCard.key, clicked: true}
       const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
+      console.log(updatedDeck)
       return updatedDeck
     }
 
