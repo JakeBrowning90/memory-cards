@@ -1,11 +1,12 @@
 import React from "react";
 
 const Card = (props) => {
-    const { onClick, face } = props;
+    const { onClick, card } = props;
 
     return (
-        <div onClick={onClick} data-key={face} className="card">
-            {face}
+        <div className="card">
+            <img src={card.img} onClick={onClick} data-key={card.key} className="cardImg"/>
+            {/* {card.key} */}
         </div>
     );
 };
