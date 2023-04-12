@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import './styles/reset.css';
 import './styles/styles.css';
 import CardField from "./components/cardField";
-// import Card from "./components/card";
 
 function App() {
   const [score, setScore] = useState(0);
@@ -42,17 +41,7 @@ function App() {
     console.log(chosenCard)
     if (chosenCard.clicked == false) {
 
-      //How do I update the card deck to change the clicked property of 1 card?
-      // setCardDeck(prevState => ({
-      //   ...prevState,
-      //   // chosenCard.clicked = true
-      // }))
-
-      setCardDeck((prev) => {
-        const withoutChosenCard = prev.filter((card) => card === chosenCard);
-        return [...withoutChosenCard, {key: chosenCard.key, clicked: !chosenCard.clicked}]
-      })
-      console.log(cardDeck);
+      markCardClicked(chosenCard)
       increaseScore();
       updateBest(); 
     } else {
@@ -84,13 +73,26 @@ function App() {
     }
   };
 
-  const shuffleCards = () => {
-    for (let i = cardDeck.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [cardDeck[i], cardDeck[j]] = [cardDeck[j], cardDeck[i]];
-    }
-    setCardDeck(cardDeck)
+  const markCardClicked = (chosenCard) => {
+    const replaceIndex = cardDeck.indexOf(chosenCard)
+    const updatedCard = {key: chosenCard.key, clicked: true}
+    setCardDeck((cardDeck) => {
+      const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
+      return updatedDeck    
+    })
   };
+
+  const shuffleCards = () => {
+    setCardDeck((cardDeck) => {
+      const shuffledDeck = [...cardDeck];
+      for (let i = shuffledDeck.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+          }
+      return shuffledDeck    
+    })
+  };
+
 
   const resetCards = () => {
     setCardDeck([
