@@ -1,10 +1,10 @@
 import React from "react";
 
 const Card = (props) => {
-    const { face } = props;
+    const { onClick, face } = props;
 
     return (
-        <div data-key={face} className="card">
+        <div onClick={onClick} data-key={face} className="card">
             {face}
         </div>
     );
