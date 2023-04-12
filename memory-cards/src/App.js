@@ -43,8 +43,12 @@ function App() {
       const result = isMoveGood(chosenCard);
       if (result == true) {
 
-        setCardDeck(updateDeck(chosenCard));
-        console.log(cardDeck);
+        //How do I update the card deck to change the clicked property of 1 card?
+        setCardDeck(prevState => ({
+          ...prevState,
+          // chosenCard.clicked = true
+        }))
+
         increaseScore();
         updateBest(); 
       } else {
@@ -62,13 +66,12 @@ function App() {
       }
     };
 
-    const updateDeck = (chosenCard) => {
-      const replaceIndex = cardDeck.indexOf(chosenCard)
-      const updatedCard = {key: chosenCard.key, clicked: true}
-      const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
-      console.log(updatedDeck)
-      return updatedDeck
-    }
+    // const updateDeck = (chosenCard) => {
+    //   const replaceIndex = cardDeck.indexOf(chosenCard)
+    //   const updatedCard = {key: chosenCard.key, clicked: true}
+    //   const updatedDeck = [...cardDeck.slice(0,replaceIndex ), updatedCard, ...cardDeck.slice(replaceIndex + 1)]
+    //   return updatedDeck
+    // }
 
     const increaseScore = () => {
       setScore(score + 1);
