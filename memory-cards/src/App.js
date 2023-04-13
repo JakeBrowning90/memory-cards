@@ -61,32 +61,40 @@ function App() {
   ])
 
   const playTurn = (e) => {
-    console.log(e.target.dataset.key)
     const chosenCard = cardDeck.find(card => card.key == e.target.dataset.key);
-    console.log(chosenCard)
     if (chosenCard.clicked == false) {
       markCardClicked(chosenCard.key)
       increaseScore();
       updateBest(); 
     } else {
+      //TO-DO Create a "Mistake" div
+      alert("Whoops! Try again!")
       resetScore();
       resetCards();
     }
-      shuffleCards();
+    //TO-DO Create a "Winner screen for 25 points"
+    //ALT at 25 points, revert clicked to false and start new round
+    if (score == 25) {
+      alert("Good!")
+      resetScore();
+      resetCards();
+    }
+    // shuffleCards();
   };
 
   const increaseScore = () => {
-    setScore(score + 1);
+    setScore(score => score + 1);
+    console.log(score)
   };
 
   const resetScore = () => {
     console.log("Reset!")
-    setScore(0);
+    setScore(score => score * 0);
   };
 
   const updateBest = () => {
     if (score == best) {
-      setBest(best + 1)
+      setBest(best => best + 1)
     }
   };
 
