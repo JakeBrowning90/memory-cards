@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import './styles/reset.css';
 import './styles/styles.css';
+import StartScreen from "./components/StartScreen";
 import CardField from "./components/cardField";
 import blooper from './components/img/blooper.webp';
 import bobomb from './components/img/bobomb.webp';
@@ -112,6 +113,11 @@ function App() {
     })
   };
 
+  const startGame = () => {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("cardField").style.display = "grid";
+  };
+
 
   const resetCards = () => {
     setCardDeck([
@@ -146,12 +152,21 @@ function App() {
   return (
     <div className="App">
       <div id="pageHeader">
-        Points: {score}
-        Best: {best}
-        <button id="resetButton" onClick={resetScore}>Retry</button>
+        <div id='headerTitle'>
+          Memory Tiles by Jake Browning
+        </div>
+        <div id='scoreBoard'>
+          <div>Points: {score}</div>
+          <div>Best: {best}</div>
+          <button id="resetButton" onClick={resetScore}>Retry</button>
+        </div>
       </div>
       <div id="pageBody">
+        <StartScreen onClick={startGame}/>
         <CardField onClick={playTurn} cardDeck={cardDeck}/>
+      </div>
+      <div id="pageFooter">
+        Created for The Odin Project, 2023. This is a not-for-profit fan project. All characters shown are property of Nintendo.
       </div>
     </div>
   );

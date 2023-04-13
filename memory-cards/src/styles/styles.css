@@ -1,11 +1,15 @@
 .App {
     height: 100vh;
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 100px 1fr 20px;
 }
 
 #pageHeader {
     background-color: rgb(255, 182, 182);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
 }
 
 #pageBody {
@@ -16,10 +20,16 @@
     padding: 5%;
 }
 
+#startScreen {
+    height: 50vh;
+    width: 70vh;
+    background-color:  rgb(255, 182, 182);
+}
+
 #cardField {
     height: 70vh;
     width: 70vh;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 20px;
@@ -38,4 +48,14 @@
 
 .cardImg{
 
+}
+
+#pageFooter {
+    
+    background-color: rgb(255, 182, 182);
+    padding: 0 50px 0 50px;
+}
+
+.hidden{
+    display: none;
 }
