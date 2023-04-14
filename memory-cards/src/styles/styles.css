@@ -26,6 +26,13 @@
     background-color:  rgb(255, 182, 182);
 }
 
+#endScreen {
+    height: 50vh;
+    width: 70vh;
+    display:none;
+    background-color:  rgb(255, 182, 182);
+}
+
 #cardField {
     height: 70vh;
     width: 70vh;
@@ -54,8 +61,4 @@
     
     background-color: rgb(255, 182, 182);
     padding: 0 50px 0 50px;
-}
-
-.hidden{
-    display: none;
 }

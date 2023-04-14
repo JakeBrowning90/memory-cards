@@ -3,6 +3,7 @@ import './styles/reset.css';
 import './styles/styles.css';
 import StartScreen from "./components/StartScreen";
 import CardField from "./components/cardField";
+import EndScreen from "./components/EndScreen";
 import blooper from './components/img/blooper.webp';
 import bobomb from './components/img/bobomb.webp';
 import bowser from './components/img/bowser.webp';
@@ -67,7 +68,7 @@ function App() {
       increaseScore();
       updateBest(); 
     } else {
-      //TO-DO Create a "Mistake" div
+      //TO-DO Create a "Mistake" div, show character's name?
       alert("Whoops! Try again!")
       resetScore();
       resetCards();
@@ -81,7 +82,6 @@ function App() {
   };
 
   const resetScore = () => {
-    console.log("Reset!")
     setScore(score => score * 0);
   };
 
@@ -119,6 +119,10 @@ function App() {
     document.getElementById("cardField").style.display = "grid";
   };
 
+  const endGame = () => {
+    document.getElementById("cardField").style.display = "none";
+    document.getElementById("endScreen").style.display = "grid";
+  };
 
   const resetCards = () => {
     setCardDeck([
@@ -154,7 +158,7 @@ function App() {
     if (score == 25) {
       //TO-DO Create a "Winner screen for 25 points"
       //ALT at 25 points, revert clicked to false and start new round
-      alert("Good!")
+      endGame();
       resetScore();
       resetCards();
     }
@@ -175,6 +179,7 @@ function App() {
       <div id="pageBody">
         <StartScreen onClick={startGame}/>
         <CardField onClick={playTurn} cardDeck={cardDeck}/>
+        <EndScreen />
       </div>
       <div id="pageFooter">
         Created for The Odin Project, 2023. This is a not-for-profit fan project. All characters shown are property of Nintendo.
