@@ -72,19 +72,12 @@ function App() {
       resetScore();
       resetCards();
     }
-    //TO-DO Create a "Winner screen for 25 points"
-    //ALT at 25 points, revert clicked to false and start new round
-    if (score == 25) {
-      alert("Good!")
-      resetScore();
-      resetCards();
-    }
-    // shuffleCards();
+
+    shuffleCards();
   };
 
   const increaseScore = () => {
     setScore(score => score + 1);
-    console.log(score)
   };
 
   const resetScore = () => {
@@ -156,6 +149,16 @@ function App() {
       {key: 25, img: blooper, clicked: false},
     ])
   }
+
+  useEffect(() => {
+    if (score == 25) {
+      //TO-DO Create a "Winner screen for 25 points"
+      //ALT at 25 points, revert clicked to false and start new round
+      alert("Good!")
+      resetScore();
+      resetCards();
+    }
+  }, [score])
 
   return (
     <div className="App">
