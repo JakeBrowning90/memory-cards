@@ -5,13 +5,13 @@ const StartScreen = (props) => {
 
     return (
         <div id="startScreen">
-        Memory Tiles
-        <ul>
-            <li>Instructions 1</li>
-            <li>Instructions 2</li>
-            <li>Instructions 3</li>
-        </ul>
-        <button id="startButton" onClick={onClick}>Start!</button>
+            <div>How to Play:</div>
+            <ul>
+                <li>Instructions 1</li>
+                <li>Instructions 2</li>
+                <li>Instructions 3</li>
+            </ul>
+            <button id="startButton" onClick={onClick}>Start!</button>
         </div>
     );
 };

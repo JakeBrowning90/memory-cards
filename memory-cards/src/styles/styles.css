@@ -24,6 +24,8 @@
     height: 50vh;
     width: 70vh;
     background-color:  rgb(255, 182, 182);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
 }
 
 #endScreen {
