@@ -6,7 +6,7 @@ const EndScreen = (props) => {
     return (
         <div id="endScreen">
             Perfect!
-            <button>Play again</button>
+            <button id="restartButton" onClick={onClick}>Play again</button>
         </div>
     );
 };

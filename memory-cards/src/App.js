@@ -31,7 +31,7 @@ import wario from './components/img/wario.webp';
 import yoshi from './components/img/yoshi.webp';
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(24);
   const [best, setBest] = useState(0);
   const [cardDeck, setCardDeck] = useState([
     {key: 1, img: mario, clicked: false},
@@ -116,6 +116,7 @@ function App() {
 
   const startGame = () => {
     document.getElementById("startScreen").style.display = "none";
+    document.getElementById("endScreen").style.display = "none";
     document.getElementById("cardField").style.display = "grid";
   };
 
@@ -179,7 +180,7 @@ function App() {
       <div id="pageBody">
         <StartScreen onClick={startGame}/>
         <CardField onClick={playTurn} cardDeck={cardDeck}/>
-        <EndScreen />
+        <EndScreen onClick={startGame}/>
       </div>
       <div id="pageFooter">
         Created for The Odin Project, 2023. This is a not-for-profit fan project. All characters shown are property of Nintendo.
