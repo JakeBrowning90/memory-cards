@@ -5,8 +5,9 @@ const EndScreen = (props) => {
 
     return (
         <div id="endScreen">
-            Perfect!
-            <button id="restartButton" onClick={onClick}>Play again</button>
+            <div className="popHeader">Well done!</div>
+            <div className="popBody">You're a Mario Memory Master!</div>
+            <button id="restartButton" className="popFooter" onClick={onClick}>Play again</button>
         </div>
     );
 };

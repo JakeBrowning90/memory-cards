@@ -76,6 +76,11 @@ function App() {
     shuffleCards();
   };
 
+  const resetGame = () => {
+    resetScore();
+    resetCards();
+  }
+
   const increaseScore = () => {
     setScore(score => score + 1);
   };
@@ -121,7 +126,7 @@ function App() {
 
   const endGame = () => {
     document.getElementById("cardField").style.display = "none";
-    document.getElementById("endScreen").style.display = "grid";
+    document.getElementById("endScreen").style.display = "flex";
   };
 
   const resetCards = () => {
@@ -176,7 +181,7 @@ function App() {
         <div id='scoreBoard'>
           <div>Points: {score}</div>
           <div>Best: {best}</div>
-          <button id="resetButton" onClick={resetScore}>Retry</button>
+          <button id="resetButton" onClick={resetGame}>Retry</button>
         </div>
       </div>
       <div id="pageBody">
