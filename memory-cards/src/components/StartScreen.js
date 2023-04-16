@@ -7,9 +7,9 @@ const StartScreen = (props) => {
         <div id="startScreen">
             <div>How to Play:</div>
             <ul>
-                <li>Instructions 1</li>
-                <li>Instructions 2</li>
-                <li>Instructions 3</li>
+                <li>Click all 25 cards without repeating yourself!</li>
+                <li>If you click the same card twice, your score will reset.</li>
+                <li>Forgot your place? Click the "Retry" button to start over!</li>
             </ul>
             <button id="startButton" onClick={onClick}>Start!</button>
         </div>

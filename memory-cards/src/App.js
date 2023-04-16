@@ -73,7 +73,6 @@ function App() {
       resetScore();
       resetCards();
     }
-
     shuffleCards();
   };
 
@@ -169,7 +168,10 @@ function App() {
     <div className="App">
       <div id="pageHeader">
         <div id='headerTitle'>
-          Memory Tiles by Jake Browning
+          Memory Tiles
+        </div>
+        <div id='headerSubtitle'>
+          by Jake Browning
         </div>
         <div id='scoreBoard'>
           <div>Points: {score}</div>
