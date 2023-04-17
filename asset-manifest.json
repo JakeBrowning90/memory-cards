@@ -1,13 +1,39 @@
 {
   "files": {
-    "main.css": "/memory-cards/static/css/main.5dc7816a.css",
-    "main.js": "/memory-cards/static/js/main.6e58bc9c.js",
+    "main.css": "/memory-cards/static/css/main.3bf7b348.css",
+    "main.js": "/memory-cards/static/js/main.130e2a13.js",
+    "static/media/titleCard.png": "/memory-cards/static/media/titleCard.a05e60e1f3561f00707b.png",
+    "static/media/rosalina.webp": "/memory-cards/static/media/rosalina.00ed36ee8179a883bf23.webp",
+    "static/media/bowser.webp": "/memory-cards/static/media/bowser.28bf9700314c764400bc.webp",
+    "static/media/waluigi.webp": "/memory-cards/static/media/waluigi.aa0346c2ad43b3d9aeb6.webp",
+    "static/media/wario.webp": "/memory-cards/static/media/wario.059c46db69e0860d1b38.webp",
+    "static/media/bowserjr.webp": "/memory-cards/static/media/bowserjr.bb9a818cf16c668c061f.webp",
+    "static/media/daisy.webp": "/memory-cards/static/media/daisy.d3a2a1571c5fed968ee4.webp",
+    "static/media/peach.webp": "/memory-cards/static/media/peach.9fcfd8f63459c04cea36.webp",
+    "static/media/luigi.webp": "/memory-cards/static/media/luigi.88b028bed7c23c0e316c.webp",
+    "static/media/mario.webp": "/memory-cards/static/media/mario.ccf4ddd18e8cf4c90358.webp",
+    "static/media/lakitu.webp": "/memory-cards/static/media/lakitu.bec959490a2de6c8539d.webp",
+    "static/media/hammerbro.webp": "/memory-cards/static/media/hammerbro.e185eac6dad0793ef82e.webp",
+    "static/media/kamek.webp": "/memory-cards/static/media/kamek.e4e47f0b9b208438e171.webp",
+    "static/media/cheepcheep.webp": "/memory-cards/static/media/cheepcheep.6622a67f1f1db545e0e4.webp",
+    "static/media/diddykong.webp": "/memory-cards/static/media/diddykong.8aef619cfb58881e5983.webp",
+    "static/media/koopa.webp": "/memory-cards/static/media/koopa.45dc2d2bb82a76fbc90c.webp",
+    "static/media/toad.webp": "/memory-cards/static/media/toad.a5eb68fe8db3b728931d.webp",
+    "static/media/piranhaplant.webp": "/memory-cards/static/media/piranhaplant.b12cbde68f13da81656e.webp",
+    "static/media/paratroopa.webp": "/memory-cards/static/media/paratroopa.32ad67fc981884287832.webp",
+    "static/media/drybones.webp": "/memory-cards/static/media/drybones.11d34751a12532fad646.webp",
+    "static/media/goomba.webp": "/memory-cards/static/media/goomba.bbf409b570f1fefdf883.webp",
+    "static/media/donkeykong.webp": "/memory-cards/static/media/donkeykong.170977e35b18e6de3f09.webp",
+    "static/media/yoshi.webp": "/memory-cards/static/media/yoshi.054f55557ac250bbbf50.webp",
+    "static/media/bobomb.webp": "/memory-cards/static/media/bobomb.9b8f5c9c9f3afd311520.webp",
+    "static/media/blooper.webp": "/memory-cards/static/media/blooper.359eaf3f57ce05037654.webp",
+    "static/media/bulletbill.webp": "/memory-cards/static/media/bulletbill.e1457e17bbe74c124c31.webp",
     "index.html": "/memory-cards/index.html",
-    "main.5dc7816a.css.map": "/memory-cards/static/css/main.5dc7816a.css.map",
-    "main.6e58bc9c.js.map": "/memory-cards/static/js/main.6e58bc9c.js.map"
+    "main.3bf7b348.css.map": "/memory-cards/static/css/main.3bf7b348.css.map",
+    "main.130e2a13.js.map": "/memory-cards/static/js/main.130e2a13.js.map"
   },
   "entrypoints": [
-    "static/css/main.5dc7816a.css",
-    "static/js/main.6e58bc9c.js"
+    "static/css/main.3bf7b348.css",
+    "static/js/main.130e2a13.js"
   ]
 }
