@@ -39,7 +39,7 @@
     padding: 5%;
 }
 
-#startScreen, #endScreen {
+#startScreen, #endScreen, #mistakeScreen {
     height: 50vh;
     width: 70vh;
     background-color:  var(--menu-light);
@@ -52,6 +52,10 @@
 
 #startScreen {
     display: flex;
+}
+
+#mistakeScreen {
+    display: none;
 }
 
 #endScreen {

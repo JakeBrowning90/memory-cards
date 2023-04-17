@@ -8,7 +8,6 @@ const CardField = (props) => {
         <div id="cardField">
             {cardDeck.map((card) => {
                 return <Card onClick={onClick} card={card} 
-                // face={card.key}
                 />
             })}
         </div>

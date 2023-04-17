@@ -3,6 +3,7 @@ import './styles/reset.css';
 import './styles/styles.css';
 import StartScreen from "./components/StartScreen";
 import CardField from "./components/cardField";
+import MistakeScreen from "./components/MistakeScreen";
 import EndScreen from "./components/EndScreen";
 import blooper from './components/img/blooper.webp';
 import bobomb from './components/img/bobomb.webp';
@@ -33,6 +34,7 @@ import yoshi from './components/img/yoshi.webp';
 function App() {
   const [score, setScore] = useState(0);
   const [best, setBest] = useState(0);
+  const [lastCard, setLastCard] = useState('')
   const [cardDeck, setCardDeck] = useState([
     {key: 1, img: mario, clicked: false},
     {key: 2, img: luigi, clicked: false},
@@ -63,15 +65,18 @@ function App() {
 
   const playTurn = (e) => {
     const chosenCard = cardDeck.find(card => card.key == e.target.dataset.key);
+    setLastCard(chosenCard.img)
     if (chosenCard.clicked == false) {
       markCardClicked(chosenCard.key)
       increaseScore();
       updateBest(); 
     } else {
       //TO-DO Create a "Mistake" div, show character's name?
-      alert("Whoops! Try again!")
-      resetScore();
-      resetCards();
+      // alert("Whoops! Try again!")
+      // resetScore();
+      // resetCards();
+      callMistake();
+      resetGame();
     }
     shuffleCards();
   };
@@ -121,7 +126,15 @@ function App() {
   const startGame = () => {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("endScreen").style.display = "none";
+    document.getElementById("mistakeScreen").style.display = "none";
     document.getElementById("cardField").style.display = "grid";
+  };
+
+  const callMistake = () => { 
+
+
+    document.getElementById("cardField").style.display = "none";
+    document.getElementById("mistakeScreen").style.display = "flex";
   };
 
   const endGame = () => {
@@ -187,6 +200,7 @@ function App() {
       <div id="pageBody">
         <StartScreen onClick={startGame}/>
         <CardField onClick={playTurn} cardDeck={cardDeck}/>
+        <MistakeScreen onClick={startGame} lastCard={lastCard}/>
         <EndScreen onClick={startGame}/>
       </div>
       <div id="pageFooter">
