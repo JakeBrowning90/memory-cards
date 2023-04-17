@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import './styles/reset.css';
 import './styles/styles.css';
 import StartScreen from "./components/StartScreen";
@@ -26,13 +26,14 @@ import paratroopa from './components/img/paratroopa.webp';
 import peach from './components/img/peach.webp';
 import piranhaplant from './components/img/piranhaplant.webp';
 import rosalina from './components/img/rosalina.webp';
+import titleCard from './components/img/titleCard.png';
 import toad from './components/img/toad.webp';
 import waluigi from './components/img/waluigi.webp';
 import wario from './components/img/wario.webp';
 import yoshi from './components/img/yoshi.webp';
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(24);
   const [best, setBest] = useState(0);
   const [lastCard, setLastCard] = useState('')
   const [cardDeck, setCardDeck] = useState([
@@ -71,10 +72,6 @@ function App() {
       increaseScore();
       updateBest(); 
     } else {
-      //TO-DO Create a "Mistake" div, show character's name?
-      // alert("Whoops! Try again!")
-      // resetScore();
-      // resetCards();
       callMistake();
       resetGame();
     }
@@ -131,8 +128,6 @@ function App() {
   };
 
   const callMistake = () => { 
-
-
     document.getElementById("cardField").style.display = "none";
     document.getElementById("mistakeScreen").style.display = "flex";
   };
@@ -174,7 +169,6 @@ function App() {
 
   useEffect(() => {
     if (score == 25) {
-      //TO-DO Create a "Winner screen for 25 points"
       //ALT at 25 points, revert clicked to false and start new round
       endGame();
       resetScore();
@@ -185,16 +179,16 @@ function App() {
   return (
     <div className="App">
       <div id="pageHeader">
-        <div id='headerTitle'>
-          Memory Tiles
-        </div>
+        {/* <div id='headerTitle'> */}
+          <img src={titleCard} id='headerTitle'></img>
+        {/* </div> */}
         <div id='headerSubtitle'>
           by Jake Browning
         </div>
         <div id='scoreBoard'>
           <div>Points: {score}</div>
           <div>Best: {best}</div>
-          <button id="resetButton" onClick={resetGame}>Retry</button>
+          <button id="resetButton" onClick={resetGame}>Reset</button>
         </div>
       </div>
       <div id="pageBody">
@@ -204,7 +198,8 @@ function App() {
         <EndScreen onClick={startGame}/>
       </div>
       <div id="pageFooter">
-        Created for The Odin Project, 2023. This is a not-for-profit fan project. All characters shown are property of Nintendo.
+        <p> Created for The Odin Project, 2023. This is a not-for-profit fan project.</p>
+        <p> All characters shown are property of Nintendo.</p>       
       </div>
     </div>
   );
