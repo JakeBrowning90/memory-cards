@@ -33,7 +33,7 @@ import wario from './components/img/wario.webp';
 import yoshi from './components/img/yoshi.webp';
 
 function App() {
-  const [score, setScore] = useState(24);
+  const [score, setScore] = useState(0);
   const [best, setBest] = useState(0);
   const [lastCard, setLastCard] = useState('')
   const [cardDeck, setCardDeck] = useState([
